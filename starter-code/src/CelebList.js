@@ -16,6 +16,29 @@ class OriginalList extends React.Component {
     contacts.push(randomCeleb);
     this.setState({ contacts });
   }
+
+  nameSort() {
+    const { contacts } = this.state;
+
+    contacts.sort((a, b) => {
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
+      return 0;
+    });
+    this.setState({ contacts });
+  }
+
+  popularitySort() {
+    const { contacts } = this.state;
+
+    contacts.sort((a, b) => {
+      if (a.popularity < b.popularity) return -1;
+      if (a.popularity > b.popularity) return 1;
+      return 0;
+    });
+    this.setState({ contacts });
+  }
+
   render() {
     const { contacts } = this.state;
 
@@ -41,6 +64,22 @@ class OriginalList extends React.Component {
           }}
         >
           Add a Random Celeb
+        </button>
+
+        <button
+          onClick={() => {
+            this.nameSort();
+          }}
+        >
+          Sort By name
+        </button>
+
+        <button
+          onClick={() => {
+            this.popularitySort();
+          }}
+        >
+          Sort by Popularity
         </button>
 
         <table>

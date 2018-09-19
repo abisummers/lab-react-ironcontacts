@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import contacts from "./contacts.json";
 
 import OriginalList from "./CelebList.js";
 
