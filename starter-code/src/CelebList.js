@@ -39,6 +39,12 @@ class OriginalList extends React.Component {
     this.setState({ contacts });
   }
 
+  deleteCeleb(celebIndex) {
+    const { contacts } = this.state;
+    contacts.splice(celebIndex, 1);
+    this.setState({ contacts });
+  }
+
   render() {
     const { contacts } = this.state;
 
@@ -53,6 +59,15 @@ class OriginalList extends React.Component {
         </td>
         <td>{oneCeleb.name}</td>
         <td>{oneCeleb.popularity}</td>
+        <td>
+          <button
+            onClick={() => {
+              this.deleteCeleb(index);
+            }}
+          >
+            Delete
+          </button>
+        </td>
       </tr>
     ));
 
@@ -88,6 +103,7 @@ class OriginalList extends React.Component {
               <th>Picture</th>
               <th>Name</th>
               <th>Popularity</th>
+              <th>Action</th>
             </tr>
           </thead>
 
